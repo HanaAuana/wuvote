@@ -11,5 +11,5 @@ block body
       div.item
         a.vote-link(href="/upvote/<%= feature._id %>" title="Vote for this feature") #{feature.votes}
         a.update-link(href="/edit/<%= feature._id %>" title="Update this feature") #{feature.content}
-        a.vote-btn(href="/upvote/<%= feature._id %>" title="Vote for this feature") Vote
+        a.vote-btn(href="/upvote/<%= feature._id %>" title="Vote for this feature")
         a.del-btn(href="/destroy/<%= feature._id %>" title="Delete this feature") Delete

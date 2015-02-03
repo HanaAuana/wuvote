@@ -101,9 +101,11 @@ body {
 }
 .vote-btn{
   display: inline;
-  float: left;
+  float: right;
   background: url("/images/up.png") no-repeat bottom left;
-  font: 8 serif;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
   width: 16px;
   height: 18px;
   margin-right: 10px;
