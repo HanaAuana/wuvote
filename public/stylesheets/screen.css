@@ -165,7 +165,6 @@ body {
 /* line 74, ../sass/screen.sass */
 .update-link {
   display: inline;
-  float: left;
   font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   color: #666666;
   text-decoration: none;
