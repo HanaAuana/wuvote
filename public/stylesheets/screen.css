@@ -90,10 +90,19 @@ body {
   width: 16px;
   height: 18px;
 }
-.vote-btn{
+.vote-link{
   display: inline;
   float: left;
   /*background: url("/images/dreamerslab.png") no-repeat bottom left;*/
+  font: 8 serif;
+  width: 16px;
+  height: 18px;
+  margin-right: 10px;
+}
+.vote-btn{
+  display: inline;
+  float: left;
+  background: url("/images/up.png") no-repeat bottom left;
   font: 8 serif;
   width: 16px;
   height: 18px;
