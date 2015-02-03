@@ -40,7 +40,7 @@ app.post( '/create',      routes.create );
 app.get(  '/destroy/:id', routes.destroy );
 app.get(  '/edit/:id',    routes.edit );
 app.post( '/update/:id',  routes.update );
-app.post( '/upvote/:id',  routes.upvote );
+app.get( '/upvote/:id',  routes.upvote );
 
 app.use( static( path.join( __dirname, 'public' )));
 
