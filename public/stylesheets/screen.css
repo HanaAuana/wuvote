@@ -94,9 +94,7 @@ body {
   display: inline;
   float: right;
   /*background: url("/images/dreamerslab.png") no-repeat bottom left;*/
-  font: 0/0 serif;
-  text-shadow: none;
-  color: transparent;
+  font: 8 serif;
   width: 16px;
   height: 18px;
 }
