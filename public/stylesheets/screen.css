@@ -92,7 +92,7 @@ body {
 }
 .vote-btn{
   display: inline;
-  float: right;
+  float: left;
   /*background: url("/images/dreamerslab.png") no-repeat bottom left;*/
   font: 8 serif;
   width: 16px;
