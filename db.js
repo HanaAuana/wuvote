@@ -9,4 +9,4 @@ var Feature = new Schema({
 });
 
 mongoose.model( 'Feature', Feature );
-mongoose.connect( process.env.MONGOLAB_URI );
+mongoose.connect( process.env.MONGOLAB_URI || "mongodb://localhost:27017/wuvote" );
