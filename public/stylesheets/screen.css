@@ -172,6 +172,7 @@ body {
   white-space: nowrap;
   max-width: 15em;
   text-overflow: ellipsis;
+  margin-right: 10px;
 }
 /* line 83, ../sass/screen.sass */
 .update-link:hover {
