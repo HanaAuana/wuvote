@@ -1,33 +1,18 @@
-<% layout( 'layout' ) -%>
+extends layout
 
-<h1 id="page-title"><%= title %></h1>
-<div id="list">
-  <form action="/create" method="post" accept-charset="utf-8">
-    <div class="item-new">
-      <input class="input" type="text" name="content" />
-    </div>
-  </form>
+h1#page-title #{title}
+div#list
+  form(action="/create" method="post" accept-charset="utf-8")
+    div.item-new
+      input.input(type="text" name="content")
 
-<% features.forEach( function ( feature ){ %>
-  <% if( feature._id == current ){ %>
-  <div class="item-new">
-  <% }else{ %>
-  <div class="item">
-  <% } %>
+for feature in features
+  if feature._id === current
+    div.item-new
+      form.update-form(action="/update/#{feature._id}" method="post" accept-charset="utf-8")
+        input.update-input(type="text" name="content" value="#{feature.content}")
+  else
+    div.item
+       a.update-link(href="/edit/#{feature._id}" title="Update this feature item") #{feature.content}
+  a.del-btn-edit(href="/destroy/#{feature._id}" title="Delete this feature item") Delete    
 
-    <% if( feature._id == current ){ %>
-    <form class="update-form" action="/update/<%= feature._id %>" method="post" accept-charset="utf-8">
-      <input class="update-input" type="text" name="content" value="<%= feature.content %>" />
-    </form>
-    <% }else{ %>
-    <a class="update-link" href="/edit/<%= feature._id %>" title="Update this feature item"><%= feature.content %></a>
-    <% } %>
-
-    <% if( feature._id == current ){ %>
-    <a class="del-btn-edit" href="/destroy/<%= feature._id %>" title="Delete this feature item">Delete</a>
-    <% }else{ %>
-    <a class="del-btn" href="/destroy/<%= feature._id %>" title="Delete this feature item">Delete</a>
-    <% } %>
-  </div>
-<% }); %>
-</div>

@@ -1,20 +1,16 @@
-<% layout( 'layout' ) -%>
+extends layout
 
-<h1 id="page-title"><%= title %></h1>
+h1#page-title #{title}
 
-<div id="list">
-  <form action="/create" method="post" accept-charset="utf-8">
-    <div class="item-new">
-      <input class="input" type="text" name="content" />
-    </div>
-  </form>
+div#list
+  form(action="/create" method="post" accept-charset="utf-8")
+    div.item-new
+      input.input(type="text" name="content")
 
-<% features.forEach( function ( feature ){ %>
-  <div class="item">
-    <a class="vote-link" href="/upvote/<%= feature._id %>" title="Vote for this feature"><%= feature.votes %></a>
-    <a class="update-link" href="/edit/<%= feature._id %>" title="Update this feature"><%= feature.content %></a>
-    <a class="vote-btn" href="/upvote/<%= feature._id %>" title="Vote for this feature">Vote</a>
-    <a class="del-btn" href="/destroy/<%= feature._id %>" title="Delete this feature">Delete</a>
-  </div>
-<% }); %>
-</div>
+
+each feature in features
+  div.item
+    a.vote-link(href="/upvote/<%= feature._id %>" title="Vote for this feature") #{feature.votes}
+    a.update-link(href="/edit/<%= feature._id %>" title="Update this feature") #{feature.content}
+    a.vote-btn(href="/upvote/<%= feature._id %>" title="Vote for this feature") Vote
+    a.del-btn(href="/destroy/<%= feature._id %>" title="Delete this feature") Delete
