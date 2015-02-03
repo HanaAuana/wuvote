@@ -1,30 +1,31 @@
 var utils    = require( '../utils' );
 var mongoose = require( 'mongoose' );
-var Todo     = mongoose.model( 'Todo' );
+var Feature  = mongoose.model( 'Feature' );
 
 exports.index = function ( req, res, next ){
   var user_id = req.cookies ?
     req.cookies.user_id : undefined;
 
-  Todo.
+  Feature.
     find({ user_id : user_id }).
-    sort( '-updated_at' ).
-    exec( function ( err, todos ){
+    sort( '-votes' ).
+    exec( function ( err, features ){
       if( err ) return next( err );
 
       res.render( 'index', {
-          title : 'Express Todo Example',
-          todos : todos
+          title : 'Feature Requests',
+          features : features
       });
     });
 };
 
 exports.create = function ( req, res, next ){
-  new Todo({
+  new Feature({
       user_id    : req.cookies.user_id,
       content    : req.body.content,
+      votes      : 0,
       updated_at : Date.now()
-  }).save( function ( err, todo, count ){
+  }).save( function ( err, feature, count ){
     if( err ) return next( err );
 
     res.redirect( '/' );
@@ -32,15 +33,15 @@ exports.create = function ( req, res, next ){
 };
 
 exports.destroy = function ( req, res, next ){
-  Todo.findById( req.params.id, function ( err, todo ){
+  Feature.findById( req.params.id, function ( err, feature ){
     var user_id = req.cookies ?
       req.cookies.user_id : undefined;
 
-    if( todo.user_id !== user_id ){
+    if( feature.user_id !== user_id ){
       return utils.forbidden( res );
     }
 
-    todo.remove( function ( err, todo ){
+    feature.remove( function ( err, feature ){
       if( err ) return next( err );
 
       res.redirect( '/' );
@@ -52,32 +53,46 @@ exports.edit = function( req, res, next ){
   var user_id = req.cookies ?
       req.cookies.user_id : undefined;
 
-  Todo.
+  Feature.
     find({ user_id : user_id }).
     sort( '-updated_at' ).
-    exec( function ( err, todos ){
+    exec( function ( err, features ){
       if( err ) return next( err );
 
       res.render( 'edit', {
-        title   : 'Express Todo Example',
-        todos   : todos,
+        title   : 'Feature Requests',
+        features   : features,
         current : req.params.id
       });
     });
 };
 
 exports.update = function( req, res, next ){
-  Todo.findById( req.params.id, function ( err, todo ){
+  Feature.findById( req.params.id, function ( err, feature ){
     var user_id = req.cookies ?
       req.cookies.user_id : undefined;
 
-    if( todo.user_id !== user_id ){
+    if( feature.user_id !== user_id ){
       return utils.forbidden( res );
     }
 
-    todo.content    = req.body.content;
-    todo.updated_at = Date.now();
-    todo.save( function ( err, todo, count ){
+    feature.content    = req.body.content;
+    feature.updated_at = Date.now();
+    feature.save( function ( err, feature, count ){
+      if( err ) return next( err );
+
+      res.redirect( '/' );
+    });
+  });
+};
+
+exports.upvote = function( req, res, next ){
+  Feature.findById( req.params.id, function ( err, feature ){
+
+    feature.content    = req.body.content;
+    feature.votes      = req.body.votes+1;
+    feature.updated_at = Date.now();
+    feature.save( function ( err, feature, count ){
       if( err ) return next( err );
 
       res.redirect( '/' );
