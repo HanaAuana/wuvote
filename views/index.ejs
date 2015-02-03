@@ -12,7 +12,7 @@
 <% features.forEach( function ( feature ){ %>
   <div class="item">
     <a class="update-link" href="/edit/<%= feature._id %>" title="Update this feature"><%= feature.content %></a>
-    <a class="del-btn" href="/upvote/<%= feature._id %>" title="Vote for this feature"><%= feature.votes %></a>
+    <a class="vote-btn" href="/upvote/<%= feature._id %>" title="Vote for this feature"><%= feature.votes %></a>
     <a class="del-btn" href="/destroy/<%= feature._id %>" title="Delete this feature">Delete</a>
   </div>
 <% }); %>
