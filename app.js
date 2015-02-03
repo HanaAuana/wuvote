@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-
+require('newrelic');
 // mongoose setup
 require( './db' );
 
