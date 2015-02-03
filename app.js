@@ -8,7 +8,6 @@ require( './db' );
 var express        = require( 'express' );
 var http           = require( 'http' );
 var path           = require( 'path' );
-var engine         = require( 'ejs-locals' );
 var favicon        = require( 'serve-favicon' );
 var cookieParser   = require( 'cookie-parser' );
 var bodyParser     = require( 'body-parser' );
@@ -23,9 +22,8 @@ var routes = require( './routes' );
 
 // all environments
 app.set( 'port', process.env.PORT || 3001 );
-app.engine( 'ejs', engine );
 app.set( 'views', path.join( __dirname, 'views' ));
-app.set( 'view engine', 'ejs' );
+app.set( 'view engine', 'jade' );
 app.use( favicon( __dirname + '/public/favicon.ico' ));
 app.use( logger( 'dev' ));
 app.use( methodOverride());
