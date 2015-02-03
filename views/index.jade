@@ -7,9 +7,18 @@ block body
     form(action="/create" method="post" accept-charset="utf-8")
       div.item-new
         input.input(type="text" name="content")
-    each feature in features
-      div.item
-        a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
-        a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
-        a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
-        a.del-btn(href="/destroy/#{feature._id}" title="Delete this feature") Delete
+    div#general
+      each feature in features
+        if feature.category == "General"
+          div.item
+            a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
+            a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
+            a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
+    div#Forms
+      each feature in features
+        if feature.category == "General"
+          div.item
+            a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
+            a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
+            a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
+

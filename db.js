@@ -4,6 +4,7 @@ var Schema   = mongoose.Schema;
 var Feature = new Schema({
     user_id    : String,
     content    : String,
+    category   : String,
     votes      : Number,
     updated_at : Date
 });

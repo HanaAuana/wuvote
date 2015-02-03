@@ -23,6 +23,7 @@ exports.create = function ( req, res, next ){
   new Feature({
       user_id    : req.cookies.user_id,
       content    : req.body.content,
+      category   : "General",
       votes      : 1,
       updated_at : Date.now()
   }).save( function ( err, feature, count ){
