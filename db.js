@@ -8,4 +8,4 @@ var Todo = new Schema({
 });
 
 mongoose.model( 'Todo', Todo );
-mongoose.connect( 'MONGOLAB_URI' );
+mongoose.connect( process.env.MONGOLAB_URI );
