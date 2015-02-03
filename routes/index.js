@@ -23,7 +23,7 @@ exports.create = function ( req, res, next ){
   new Feature({
       user_id    : req.cookies.user_id,
       content    : req.body.content,
-      votes      : 0,
+      votes      : 1,
       updated_at : Date.now()
   }).save( function ( err, feature, count ){
     if( err ) return next( err );
@@ -90,7 +90,7 @@ exports.upvote = function( req, res, next ){
   Feature.findById( req.params.id, function ( err, feature ){
 
     feature.content    = req.body.content;
-    feature.votes      = req.body.votes+1;
+    feature.votes      = parseInt(req.body.votes)+1;
     feature.updated_at = Date.now();
     feature.save( function ( err, feature, count ){
       if( err ) return next( err );

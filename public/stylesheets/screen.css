@@ -90,6 +90,16 @@ body {
   width: 16px;
   height: 18px;
 }
+.vote-btn{
+  display: inline;
+  float: right;
+  background: url("/images/dreamerslab.png") no-repeat bottom left;
+  font: 0/0 serif;
+  text-shadow: none;
+  color: transparent;
+  width: 16px;
+  height: 18px;
+}
 
 /* line 28, ../sass/screen.sass */
 .del-btn-edit {
