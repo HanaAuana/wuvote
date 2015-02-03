@@ -89,7 +89,7 @@ exports.update = function( req, res, next ){
 exports.upvote = function( req, res, next ){
   Feature.findById( req.params.id, function ( err, feature ){
 
-    feature.content    = req.body.content;
+    feature.content    = feature.content;
     feature.votes      = feature.votes+1;
     feature.updated_at = Date.now();
     feature.save( function ( err, feature, count ){
