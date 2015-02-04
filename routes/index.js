@@ -7,7 +7,7 @@ exports.index = function ( req, res, next ){
     req.cookies.user_id : undefined;
 
   Feature.
-    find({ user_id : user_id }).
+    find().
     sort( '-votes' ).
     exec( function ( err, features ){
       if( err ) return next( err );
@@ -24,7 +24,7 @@ exports.forms = function ( req, res, next ){
     req.cookies.user_id : undefined;
 
   Feature.
-    find({ user_id : user_id }).
+    find().
     sort( '-votes' ).
     exec( function ( err, features ){
       if( err ) return next( err );
@@ -41,7 +41,7 @@ exports.reports = function ( req, res, next ){
     req.cookies.user_id : undefined;
 
   Feature.
-    find({ user_id : user_id }).
+    find().
     sort( '-votes' ).
     exec( function ( err, features ){
       if( err ) return next( err );
@@ -58,7 +58,7 @@ exports.general = function ( req, res, next ){
     req.cookies.user_id : undefined;
 
   Feature.
-    find({ user_id : user_id }).
+    find().
     sort( '-votes' ).
     exec( function ( err, features ){
       if( err ) return next( err );
