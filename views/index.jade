@@ -14,7 +14,7 @@ block body
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
-    div#Forms
+    div#forms
       each feature in features
         if feature.category == "Forms"
           div.item

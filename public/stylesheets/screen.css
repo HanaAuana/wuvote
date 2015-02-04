@@ -269,3 +269,11 @@ html, body {
   position: relative;
   height: 48px;
 }
+
+div#general{
+  float: left;
+}
+
+div#forms{
+  float: right;
+}
