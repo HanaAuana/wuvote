@@ -19,7 +19,6 @@ var static         = require( 'serve-static' );
 var app    = express();
 var routes = require( './routes' );
 
-
 // all environments
 app.set( 'port', process.env.PORT || 3001 );
 app.set( 'views', path.join( __dirname, 'views' ));
