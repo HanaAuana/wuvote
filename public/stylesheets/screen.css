@@ -97,7 +97,7 @@ body {
 .vote-btn{
   display: inline;
   float: right;
-  background: url("/images/up.png") no-repeat bottom left;
+  background: url("/images/tick.png") no-repeat bottom left;
   font: 0/0 serif;
   text-shadow: none;
   color: transparent;
@@ -133,6 +133,12 @@ body {
   position: relative;
   text-shadow: 1px 1px 0 white;
   width: 250px;
+}
+a.update-link{
+  overflow: hidden;
+  display: inline-block;
+  margin-right: 0px;
+  max-width: 14em;
 }
 /* line 49, ../sass/screen.sass */
 .item:hover, .item-new:hover {

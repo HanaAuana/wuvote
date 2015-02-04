@@ -7,12 +7,20 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .l-box {
-    padding: 2em;
+    padding-bottom: 2em;
 }
 
 .header .pure-menu {
     border-bottom-color: black;
     border-radius: 0;
+}
+
+h1{
+    margin-top: 0.2em;
+}
+#page-title {
+    padding: 5px;
+    border-radius: 50px;
 }
 
 .photo-box, .text-box {
@@ -81,7 +89,7 @@ h1,h2,h3,h4,h5,h6 {
         text-transform: uppercase;
     }
 
-.form-box {
+.form-box { 
     text-align: center;
     font-size: 120%;
     border-bottom: 1px solid #eee;
@@ -102,6 +110,19 @@ h1,h2,h3,h4,h5,h6 {
         margin: 0.3em auto;
         text-align: center;
     }
+    input[type="text"]{
+        padding: 0;
+    }
+    select{
+        margin-left: 5px;
+    }
+
+    fieldset {
+        border: none;
+        margin: 0 2px;
+        padding: .35em .625em .75em;
+    }
+
 
 .footer {
     background: #111;
@@ -117,7 +138,10 @@ h1,h2,h3,h4,h5,h6 {
     height: 100%;
     margin: 0 auto -6em;
 }
-.footer, .push {
+.push {
+    height: 5em;
+}
+.footer{
     height: 2em;
 }
 

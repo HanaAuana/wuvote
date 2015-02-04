@@ -96,7 +96,7 @@ exports.destroy = function ( req, res, next ){
     feature.remove( function ( err, feature ){
       if( err ) return next( err );
 
-      res.redirect( '/' );
+      res.redirect( req.header('Referer') );
     });
   });
 };
@@ -133,7 +133,7 @@ exports.update = function( req, res, next ){
     feature.save( function ( err, feature, count ){
       if( err ) return next( err );
 
-      res.redirect( '/' );
+      res.redirect( req.header('Referer') );
     });
   });
 };
@@ -147,7 +147,7 @@ exports.upvote = function( req, res, next ){
     feature.save( function ( err, feature, count ){
       if( err ) return next( err );
 
-      res.redirect( '/' );
+      res.redirect( req.header('Referer') );
     });
   });
 };
