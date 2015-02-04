@@ -25,11 +25,6 @@ body {
   line-height: 1;
 }
 
-/* line 22, ../../../../../Users/fred/.rvm/gems/ruby-1.9.3-p0/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
-
 /* line 24, ../../../../../Users/fred/.rvm/gems/ruby-1.9.3-p0/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
@@ -133,6 +128,7 @@ body {
   border-radius: 6px 6px 6px 6px;
   list-style: none outside none;
   margin: 6px 0 0;
+  margin-left: 10px;
   padding: 8px 9px 9px;
   position: relative;
   text-shadow: 1px 1px 0 white;
@@ -270,10 +266,6 @@ html, body {
   height: 48px;
 }
 
-div#general{
-  float: left;
-}
-
-div#forms{
-  float: right;
+h4.category{
+  margin-left: 10px;
 }

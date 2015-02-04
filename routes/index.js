@@ -19,11 +19,62 @@ exports.index = function ( req, res, next ){
     });
 };
 
+exports.forms = function ( req, res, next ){
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;
+
+  Feature.
+    find({ user_id : user_id }).
+    sort( '-votes' ).
+    exec( function ( err, features ){
+      if( err ) return next( err );
+
+      res.render( 'cat1', {
+          title : 'Forms',
+          features : features
+      });
+    });
+};
+
+exports.reports = function ( req, res, next ){
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;
+
+  Feature.
+    find({ user_id : user_id }).
+    sort( '-votes' ).
+    exec( function ( err, features ){
+      if( err ) return next( err );
+
+      res.render( 'cat2', {
+          title : 'Reports',
+          features : features
+      });
+    });
+};
+
+exports.general = function ( req, res, next ){
+  var user_id = req.cookies ?
+    req.cookies.user_id : undefined;
+
+  Feature.
+    find({ user_id : user_id }).
+    sort( '-votes' ).
+    exec( function ( err, features ){
+      if( err ) return next( err );
+
+      res.render( 'cat3', {
+          title : 'General',
+          features : features
+      });
+    });
+};
+
 exports.create = function ( req, res, next ){
   new Feature({
       user_id    : req.cookies.user_id,
       content    : req.body.content,
-      category   : "General",
+      category   : req.body.category || "General",
       votes      : 1,
       updated_at : Date.now()
   }).save( function ( err, feature, count ){

@@ -34,6 +34,9 @@ app.use( bodyParser.urlencoded({ extended : true }));
 // Routes
 app.use( routes.current_user );
 app.get(  '/',            routes.index );
+app.get(  '/forms',       routes.forms );
+app.get(  '/reports',     routes.reports );
+app.get(  '/general',     routes.general );
 app.post( '/create',      routes.create );
 app.get(  '/destroy/:id', routes.destroy );
 app.get(  '/edit/:id',    routes.edit );

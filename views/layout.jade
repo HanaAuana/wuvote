@@ -1,11 +1,32 @@
 doctype
 html
   head
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title #{title}
+
     link(rel='stylesheet' href='/stylesheets/screen.css')
+    link(rel="stylesheet" href="/stylesheets/pure-min.css")
+    link(rel='stylesheet' href='/stylesheets/grid.css')
+    link(rel='stylesheet' href='/stylesheets/layout.css')
   body
-    div#layout
-      block body
-      div#layout-footer
-    div#footer-wrap
-      div#footer
+    div.wrapper
+        div.header
+            div.pure-menu.pure-menu-open.pure-menu-horizontal
+                a.pure-menu-heading(href="") Wuvote
+                ul
+                    li.pure-menu-selected
+                        a(href="/") Home
+                    li
+                        a(href="/forms") Forms
+                    li
+                        a(href="/reports") Reports
+                    li
+                        a(href="/general") General
+        block body
+        div.push
+    div.footer
+        div.legal.pure-g
+            div.pure-u-1.u-sm-1-2
+                p.legal-license Built using Pure v0.5.0 licensed under the 
+                    a(href="https://github.com/yahoo/pure-site/blob/master/LICENSE.md") Yahoo BSD License
+            div.pure-u-1.u-sm-1-2
