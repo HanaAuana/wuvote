@@ -31,7 +31,7 @@ app.use( bodyParser.json());
 app.use( bodyParser.urlencoded({ extended : true }));
 
 // Routes
-app.use( routes.current_user );
+//app.use( routes.current_user );
 app.get(  '/',            routes.index );
 app.get(  '/forms',       routes.forms );
 app.get(  '/reports',     routes.reports );
