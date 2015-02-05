@@ -20,6 +20,7 @@ var app    = express();
 var routes = require( './routes' );
 
 // all environments
+app.set("trust proxy", true);
 app.set( 'port', process.env.PORT || 3001 );
 app.set( 'views', path.join( __dirname, 'views' ));
 app.set( 'view engine', 'jade' );

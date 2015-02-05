@@ -66,9 +66,16 @@ exports.general = function ( req, res, next ){
 };
 
 exports.create = function ( req, res, next ){
+  var clientIP = req.headers["x-forwarded-for"];
+  if (clientIP){
+    var list = clientIP.split(",");
+    clientIP = list[list.length-1];
+  } else {
+    clientIP = req.ip;
+  }
   new Feature({
       //user_id    : req.cookies.user_id,
-      ip         : req.ip,
+      ip         : clientIP,
       content    : req.body.content,
       category   : req.body.category || "General",
       votes      : 0,
@@ -81,10 +88,17 @@ exports.create = function ( req, res, next ){
 };
 
 exports.destroy = function ( req, res, next ){
+  var clientIP = req.headers["x-forwarded-for"];
+  if (clientIP){
+    var list = clientIP.split(",");
+    clientIP = list[list.length-1];
+  } else {
+    clientIP = req.ip;
+  }
   Feature.findById( req.params.id, function ( err, feature ){
     
 
-    if( feature.ip !== req.ip ){
+    if( feature.ip !== clientIP ){
       return utils.forbidden( res );
     }
 
@@ -97,9 +111,15 @@ exports.destroy = function ( req, res, next ){
 };
 
 exports.edit = function( req, res, next ){
-
+  var clientIP = req.headers["x-forwarded-for"];
+  if (clientIP){
+    var list = clientIP.split(",");
+    clientIP = list[list.length-1];
+  } else {
+    clientIP = req.ip;
+  }
   Feature.
-    find({ ip : req.ip }).
+    find({ ip : clientIP }).
     sort( '-updated_at' ).
     exec( function ( err, features ){
       if( err ) return next( err );
@@ -113,9 +133,16 @@ exports.edit = function( req, res, next ){
 };
 
 exports.update = function( req, res, next ){
+  var clientIP = req.headers["x-forwarded-for"];
+  if (clientIP){
+    var list = clientIP.split(",");
+    clientIP = list[list.length-1];
+  } else {
+    clientIP = req.ip;
+  }
   Feature.findById( req.params.id, function ( err, feature ){
 
-    if( feature.ip !== req.ip ){
+    if( feature.ip !== clientIP ){
       return utils.forbidden( res );
     }
 
@@ -132,7 +159,14 @@ exports.update = function( req, res, next ){
 exports.upvote = function( req, res, next ){
   var userVotes;
   var voterId;
-  Vote.find({ ip: req.ip }, function (err, vote){
+  var clientIP = req.headers["x-forwarded-for"];
+  if (clientIP){
+    var list = clientIP.split(",");
+    clientIP = list[list.length-1];
+  } else {
+    clientIP = req.ip;
+  }
+  Vote.find({ ip: clientIP }, function (err, vote){
     userVotes = vote;
     if( err ) {
       return next( err );
@@ -149,7 +183,7 @@ exports.upvote = function( req, res, next ){
           var thisFeature = ""+ req.params.id;
           newVotes = [thisFeature];
           new Vote({
-              ip         : req.ip,
+              ip         : clientIP,
               features   : newVotes,
               updated_at : Date.now()
           }).save( function ( err, vote, count ){
