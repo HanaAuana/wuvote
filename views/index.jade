@@ -43,7 +43,7 @@ block body
     div.u-1-4
       h4.category Themes
       for feature, i in features
-        if feature.category == "Other" && (i < 7) 
+        if feature.category == "Themes" && (i < 7) 
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
