@@ -176,12 +176,12 @@ h1{
         margin-bottom: 0;
     }
 
-@media (min-width: 30em) {
-    .photo-box, .text-box {
-        text-align: left;
-    }
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: Georgia, Times, "Times New Roman", serif;
+}
 
-    .photo-box-thin {
-        height: 250px;
-    }
+.pure-g, .pure-g [class *= "pure-u"]  {
+    display: flex;
 }

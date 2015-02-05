@@ -156,7 +156,6 @@ a.update-link{
 .input, .update-input {
   border: 1px solid #cccccc;
   color: #666666;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   font-size: 15px;
   padding: 3px 4px;
   width: 248px;
@@ -178,7 +177,6 @@ a.update-link{
 /* line 74, ../sass/screen.sass */
 .update-link {
   display: inline;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
   color: #666666;
   text-decoration: none;
   overflow: hidden;
@@ -216,7 +214,6 @@ a.update-link{
 #dreamerslab {
   display: inline;
   float: left;
-  font-family: Georgia;
   background: url("/images/dreamerslab.png") no-repeat top left;
   padding: 0 0 3px 16px;
   color: #333333;
@@ -233,7 +230,6 @@ a.update-link{
   display: inline;
   float: left;
   color: #333333;
-  font-family: Georgia;
   padding: 0 4px;
 }
 
