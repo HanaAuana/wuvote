@@ -123,6 +123,10 @@ h1{
         padding: .35em .625em .75em;
     }
 
+    .pure-g{
+        letter-spacing: 0em;
+    }
+
 
 .footer {
     background: #111;
