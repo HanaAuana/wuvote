@@ -7,8 +7,9 @@ block body
         div.item-new
           form.update-form(action="/update/#{feature._id}" method="post" accept-charset="utf-8")
             input.update-input(type="text" name="content" value="#{feature.content}")
+          a.del-btn-edit(href="/destroy/#{feature._id}" title="Delete this feature item") Delete
       else
         div.item
           a.update-link(href="/edit/#{feature._id}" title="Update this feature item") #{feature.content}
-          a.del-btn-edit(href="/destroy/#{feature._id}" title="Delete this feature item") Delete    
+              
 
