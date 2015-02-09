@@ -20,7 +20,6 @@ block body
       h4.category General
       -var counter = 0;
       for feature in features
-        -console.log(i)
         if feature.category == "General" && (counter < 6)
           -counter +=1;
           div.item
@@ -31,8 +30,7 @@ block body
       h4.category Forms
       -var counter = 0;
       for feature in features
-        -console.log(j+" : "+feature)
-        if feature.category == "Forms" && (couner < 6) 
+        if feature.category == "Forms" && (counter < 6) 
           -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
