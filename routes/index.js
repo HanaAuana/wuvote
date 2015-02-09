@@ -157,79 +157,17 @@ exports.update = function( req, res, next ){
 };
 
 exports.upvote = function( req, res, next ){
-  var userVotes;
-  var voterId;
-  var clientIP = req.headers["x-forwarded-for"];
-  if (clientIP){
-    var list = clientIP.split(",");
-    clientIP = list[list.length-1];
-  } else {
-    clientIP = req.ip;
-  }
-  Vote.find({ ip: clientIP }, function (err, vote){
-    userVotes = vote;
-    if( err ) {
-      return next( err );
-    }
-    if (typeof vote == 'undefined' || vote.length <= 0) {
-      Feature.findById( req.params.id, function ( err, feature ){
-        feature.votes      = feature.votes+1;
-        feature.updated_at = Date.now();
-        feature.save( function ( err, feature, count ){
-          if( err ){
-            return next( err );
-          } 
-          var newVotes;
-          var thisFeature = ""+ req.params.id;
-          newVotes = [thisFeature];
-          new Vote({
-              ip         : clientIP,
-              features   : newVotes,
-              updated_at : Date.now()
-          }).save( function ( err, vote, count ){
-            if( err ) return next( err );
-          });
-          res.redirect( req.header('Referer') );
-        });
-      });
-    }
-    else{
-      voterId = vote[0]._id;
-      featuresVotedFor = userVotes[0].features;
-      var hasVoted = false;
-      for(feature in featuresVotedFor){
-        if(featuresVotedFor[feature] == req.params.id){
-          hasVoted = true;
-        }
-      }
-      
-      if(hasVoted){
+  Feature.findById( req.params.id, function ( err, feature ){
+      feature.votes      = feature.votes+1;
+      feature.updated_at = Date.now();
+      feature.save( function ( err, feature, count ){
+        if( err ){
+          return next( err );
+        } 
         res.redirect( req.header('Referer') );
-      }
-      else{
-        Feature.findById( req.params.id, function ( err, feature ){
-          feature.votes      = feature.votes+1;
-          feature.updated_at = Date.now();
-          feature.save( function ( err, feature, count ){
-            if( err ) return next( err );
+      });
+  });
 
-            var addedThisVote;
-            userVotes[0].features.push(req.params.id);
-            addedThisVote = userVotes[0].features;
-            Vote.findById( voterId, function ( err, vote ){
-              vote.features    = addedThisVote;
-              vote.updated_at  = Date.now();
-              vote.save( function ( err, vote, count ){
-                if( err ) return next( err );
-                res.redirect( req.header('Referer') );
-              });
-            });
-          });
-        });
-      }
-    }
-
-  });  
 };
 
 // ** express turns the cookie key to lowercase **
