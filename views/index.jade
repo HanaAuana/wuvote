@@ -26,32 +26,32 @@ block body
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
     div.u-1-5
       h4.category Forms
-      for feature, i in features
-        if feature.category == "Forms" && (i < 7) 
+      for feature, j in features
+        if feature.category == "Forms" && (j < 7) 
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature") 
     div.u-1-5
       h4.category Reports
-      for feature, i in features
-        if feature.category == "Reports" && (i < 7) 
+      for feature, k in features
+        if feature.category == "Reports" && (k < 7) 
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
     div.u-1-5
       h4.category Themes
-      for feature, i in features
-        if feature.category == "Themes" && (i < 7) 
+      for feature, l in features
+        if feature.category == "Themes" && (l < 7) 
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
     div.u-1-5
       h4.category Other
-      for feature, i in features
-        if feature.category == "Other" && (i < 7) 
+      for feature, m in features
+        if feature.category == "Other" && (m < 7) 
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
