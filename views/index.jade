@@ -18,40 +18,52 @@ block body
   div.pure-g
     div.u-1-5
       h4.category General
-      for feature, i in features
-        if feature.category == "General" && (i < 7) 
+      -var counter = 0;
+      for featurein features
+        -console.log(i)
+        if feature.category == "General" && (counter < 6)
+          -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
     div.u-1-5
       h4.category Forms
-      for feature, j in features
-        if feature.category == "Forms" && (j < 7) 
+      -var counter = 0;
+      for feature in features
+        -console.log(j+" : "+feature)
+        if feature.category == "Forms" && (couner < 6) 
+          -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature") 
     div.u-1-5
       h4.category Reports
-      for feature, k in features
-        if feature.category == "Reports" && (k < 7) 
+      -var counter = 0;
+      for feature in features
+        if feature.category == "Reports" && (counter < 6)
+          -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
     div.u-1-5
       h4.category Themes
-      for feature, l in features
-        if feature.category == "Themes" && (l < 7) 
+      -var counter = 0;
+      for feature in features
+        if feature.category == "Themes" && (counter < 6)
+          -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
             a.vote-btn(href="/upvote/#{feature._id}" title="Vote for this feature")
     div.u-1-5
       h4.category Other
-      for feature, m in features
-        if feature.category == "Other" && (m < 7) 
+      -var counter = 0;
+      for feature in features
+        if feature.category == "Other" && (counter < 6)
+          -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
             a.update-link(href="/edit/#{feature._id}" title="Update this feature") #{feature.content}
