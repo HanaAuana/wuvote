@@ -65,6 +65,22 @@ exports.general = function ( req, res, next ){
     });
 };
 
+exports.other = function ( req, res, next ){
+  
+
+  Feature.
+    find().
+    sort( '-votes' ).
+    exec( function ( err, features ){
+      if( err ) return next( err );
+
+      res.render( 'cat4', {
+          title : 'Other',
+          features : features
+      });
+    });
+};
+
 exports.create = function ( req, res, next ){
   var clientIP = req.headers["x-forwarded-for"];
   if (clientIP){
