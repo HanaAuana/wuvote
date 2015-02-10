@@ -19,7 +19,7 @@ exports.index = function ( req, res, next ){
     });
 };
 
-exports.forms = function ( req, res, next ){
+exports.cat = function ( req, res, next ){
   
   Feature.
     find().
@@ -27,55 +27,8 @@ exports.forms = function ( req, res, next ){
     exec( function ( err, features ){
       if( err ) return next( err );
 
-      res.render( 'cat1', {
-          title : 'Forms',
-          features : features
-      });
-    });
-};
-
-exports.reports = function ( req, res, next ){
-
-  Feature.
-    find().
-    sort( '-votes' ).
-    exec( function ( err, features ){
-      if( err ) return next( err );
-
-      res.render( 'cat2', {
-          title : 'Reports',
-          features : features
-      });
-    });
-};
-
-exports.general = function ( req, res, next ){
-  
-
-  Feature.
-    find().
-    sort( '-votes' ).
-    exec( function ( err, features ){
-      if( err ) return next( err );
-
-      res.render( 'cat3', {
-          title : 'General',
-          features : features
-      });
-    });
-};
-
-exports.other = function ( req, res, next ){
-  
-
-  Feature.
-    find().
-    sort( '-votes' ).
-    exec( function ( err, features ){
-      if( err ) return next( err );
-
-      res.render( 'cat4', {
-          title : 'Other',
+      res.render( 'cat', {
+          title : req.query.cat,
           features : features
       });
     });

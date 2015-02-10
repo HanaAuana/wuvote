@@ -186,3 +186,16 @@ html, button, input, select, textarea,
 .pure-g, .pure-g [class *= "pure-u"]  {
     display: flex;
 }
+
+.item-full{
+    overflow: initial;
+    width: auto;
+}
+.update-link-full{
+    overflow: initial;
+    width: auto;
+}
+
+a.update-link-full {
+    overflow: initial;
+}
