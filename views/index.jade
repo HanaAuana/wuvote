@@ -20,7 +20,7 @@ block body
       h4.category General
       -var counter = 0;
       for feature in features
-        if feature.category == "General" //&& (counter < 6)
+        if feature.category == "General" 
           -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
@@ -30,7 +30,7 @@ block body
       h4.category Forms
       -var counter = 0;
       for feature in features
-        if feature.category == "Forms" //&& (counter < 6) 
+        if feature.category == "Forms" 
           -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
@@ -40,7 +40,7 @@ block body
       h4.category Reports
       -var counter = 0;
       for feature in features
-        if feature.category == "Reports"// && (counter < 6)
+        if feature.category == "Reports"
           -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
@@ -50,7 +50,7 @@ block body
       h4.category Themes
       -var counter = 0;
       for feature in features
-        if feature.category == "Themes" //&& (counter < 6)
+        if feature.category == "Themes" 
           -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
@@ -60,7 +60,7 @@ block body
       h4.category Other
       -var counter = 0;
       for feature in features
-        if feature.category == "Other" //&& (counter < 6)
+        if feature.category == "Other" 
           -counter +=1;
           div.item
             a.vote-link(href="/upvote/#{feature._id}" title="Vote for this feature") #{feature.votes}
