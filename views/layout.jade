@@ -12,18 +12,14 @@ html
     div.wrapper
         div.header
             div.pure-menu.pure-menu-open.pure-menu-horizontal
+                -var categories = ["General", "Forms", "Reports", "Themes", "Other", "Rules"];
                 a.pure-menu-heading(href="/") Home
                 ul
                     li.pure-menu-selected
                         div Categories:
-                    li
-                        a(href="/cat?cat=Forms") Forms
-                    li
-                        a(href="/cat?cat=Reports") Reports
-                    li
-                        a(href="/cat?cat=General") General
-                    li
-                        a(href="/cat?cat=Other") Other
+                    each cat in categories
+                        li
+                            a(href="/category?c=#{cat}") #{cat}
         block body
         div.push
     div.footer

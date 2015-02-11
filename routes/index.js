@@ -19,7 +19,7 @@ exports.index = function ( req, res, next ){
     });
 };
 
-exports.cat = function ( req, res, next ){
+exports.category = function ( req, res, next ){
   
   Feature.
     find().
@@ -27,8 +27,8 @@ exports.cat = function ( req, res, next ){
     exec( function ( err, features ){
       if( err ) return next( err );
 
-      res.render( 'cat', {
-          title : req.query.cat,
+      res.render( 'category', {
+          title : req.query.c,
           features : features
       });
     });
