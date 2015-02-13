@@ -3,6 +3,8 @@ var mongoose = require( 'mongoose' );
 var Feature  = mongoose.model( 'Feature' );
 var Vote  = mongoose.model( 'Vote' );
 
+var categories = ["General", "Forms", "Reports", "Rules", "Payments", "Other", "Themes"];
+
 exports.index = function ( req, res, next ){
   
 
@@ -14,7 +16,8 @@ exports.index = function ( req, res, next ){
 
       res.render( 'index', {
           title : 'Feature Requests',
-          features : features
+          features : features,
+          categories : categories
       });
     });
 };
@@ -29,7 +32,8 @@ exports.category = function ( req, res, next ){
 
       res.render( 'category', {
           title : req.query.c,
-          features : features
+          features : features,
+          categories : categories
       });
     });
 };
