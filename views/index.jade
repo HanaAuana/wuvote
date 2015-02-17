@@ -1,7 +1,10 @@
 extends layout
 
 block body
-  h1#page-title #{title}
+  -var totalRequests = 0;
+  for feature in features
+    -totalRequests += feature.votes
+  h1#page-title #{title}:#{totalRequests}
   div.u-1.form-box
       div.l-box
         form.pure-form-pure-form-stacked(action="/create" method="post" accept-charset="utf-8")
