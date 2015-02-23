@@ -1,10 +1,10 @@
 extends layout
 block body
   h1#page-title #{title}
-  div#list
+  div.list-full
     for feature in features
       if feature._id == current
-        div.item-new.item-full
+        div.item-new
           form.update-form(action="/update/#{feature._id}" method="post" accept-charset="utf-8")
             input.update-input(type="text" name="content" value="#{feature.content}")
           a.del-btn-edit(href="/destroy/#{feature._id}" title="Delete this feature item") Delete

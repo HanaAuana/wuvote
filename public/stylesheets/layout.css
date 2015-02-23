@@ -191,6 +191,12 @@ html, button, input, select, textarea,
     overflow: initial;
     width: auto;
 }
+.list-full{
+  width: auto;
+  margin: 0 auto;
+  padding: 20px 0 15px;
+  position: relative;
+}
 .update-link-full{
     overflow: initial;
     width: auto;
