@@ -6,8 +6,6 @@ var Vote  = mongoose.model( 'Vote' );
 var categories = ["General", "Forms", "Reports", "Rules", "Payments", "Other", "Themes"];
 
 exports.index = function ( req, res, next ){
-  
-
   Feature.
     find().
     sort( '-votes' ).
