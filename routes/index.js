@@ -6,8 +6,6 @@ var Vote  = mongoose.model( 'Vote' );
 var categories = ["General", "Forms", "Reports", "Rules", "Payments", "Other", "Themes"];
 
 exports.index = function ( req, res, next ){
-  
-
   Feature.
     find().
     sort( '-votes' ).
@@ -100,7 +98,8 @@ exports.edit = function( req, res, next ){
       res.render( 'edit', {
         title   : 'Edit your requests',
         features   : features,
-        current : req.params.id
+        current : req.params.id,
+        categories : categories
       });
     });
 };
