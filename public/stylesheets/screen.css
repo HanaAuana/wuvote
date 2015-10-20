@@ -97,7 +97,7 @@ body {
 .vote-btn{
   display: inline;
   float: right;
-  background: url("/images/tick.png") no-repeat bottom left;
+  background: url("/images/arrow_up.png") no-repeat bottom left;
   font: 0/0 serif;
   text-shadow: none;
   color: transparent;
