@@ -3,7 +3,7 @@ var mongoose = require( 'mongoose' );
 var Feature  = mongoose.model( 'Feature' );
 var Vote  = mongoose.model( 'Vote' );
 
-var categories = ["General", "Forms", "Reports", "Rules", "Payments", "Other", "Themes"];
+var categories = ["General", "Forms", "Reports", "Rules", "Payments"];
 
 exports.index = function ( req, res, next ){
   Feature.
